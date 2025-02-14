@@ -73,7 +73,7 @@ export class CoffeesService {
       ));
 
     const coffee = await this.coffeeRepository.preload({
-      id: +id,
+      id,
       ...updateCoffeeDto,
       flavors,
     });
