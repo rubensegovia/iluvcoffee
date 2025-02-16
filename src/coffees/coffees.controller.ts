@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { ApiForbiddenResponse } from '@nestjs/swagger';
 import { Protocol } from 'src/common/decorators/protocol.decorator';
 import { Public } from 'src/common/decorators/public.decorator';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
@@ -16,6 +17,7 @@ export class CoffeesController {
     console.log('CoffeesController instantiated');
   }
 
+  @ApiForbiddenResponse({ description: 'Forbidden.' })
   @Public()
   @Get()
   findAll(@Protocol('https') protocol: string, @Query() paginationQuery: PaginationQueryDto) {
