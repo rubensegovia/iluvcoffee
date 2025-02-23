@@ -19,7 +19,7 @@ describe('AppController (e2e)', () => {
   it('/ (GET)', () => {
     return request(app.getHttpServer())
       .get('/')
-      .set('Authorization', process.env.API_KEY || '')
+      .set('Authorization', process.env.API_KEY ?? '')
       .expect(200)
       .expect('Hello Nest!');
   });
